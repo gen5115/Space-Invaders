@@ -1,38 +1,63 @@
 # Space Invaders Game
 
-## Introduction
-This is a simple version of the classic Space Invaders game. I made it using Pygame, which is a library that helps you create games in Python. 
-The game has basic stuff like moving the spaceship, shooting bullets, and hitting enemies. There’s also some background music and sound effects to make it more fun.
+## Description
+
+Welcome to my Space Invaders game! This is a classic arcade-style game where you control a spaceship to shoot at descending aliens. The goal is to destroy all the enemies before they reach the bottom of the screen.
 
 ## Features
-- Player can move left and right.
-- Player can shoot bullets to destroy enemies.
-- Enemies move towards the player and the game ends if they reach the player.
-- Score tracking.
-- Game Over and Restart functionality.
-- Background music and sound effects.
 
-## How to Play
-- Use the left and right arrow keys to move.
-- Press the spacebar to shoot.
-- Try to shoot all the enemies before they reach you!
+- **Player Controls:** Move the spaceship left and right using arrow keys and shoot bullets with the space bar.
+- **Enemies:** Aliens move horizontally and drop down when they hit the edge of the screen.
+- **Scoring:** Earn points by hitting enemies with bullets.
+- **Game Over:** The game ends when an enemy reaches the player's position. You can restart by pressing 'R'.
 
-## Challenges Faced
-- **Understanding Pygame Library**: This was my first time using Pygame, and it took me a while to understand how it works. I watched a bunch of YouTube tutorials and slowly started figuring things out..
-- **Collision Detection**: I wanted the bullet to hit the enemy when they touch, so I used a little math (Pythagorean theorem) to check when they’re close enough. It was tricky to get the distance right, but it works now!
-- **Game Over Functionality**: I had to figure out how to display a game-over screen and let the player restart the game without it glitching. It took some trial and error as I had to ensure the game reset correctly and all variables were initialized properly.
+## How It Works
 
-## Key Learnings
-- **Pygame Fundamentals**: This project gave me a solid understanding of how Pygame works and how to use it for game development.
-- **Problem-Solving**: Each challenge I faced helped me develop my problem-solving skills, especially when debugging and fixing issues in the game.
-- **Version Control**: I learned how to use GitHub to manage my project and keep track of changes, which is essential for any developer.
-
-## Deployment
-I deployed the game on [Heroku/AWS/Google Cloud - choose one] so it can be played online.
-
-[Link to Deployed Game]()
+1. **Player Movement:** Use arrow keys to move the spaceship.
+2. **Shooting:** Press the space bar to fire bullets.
+3. **Enemy Movement:** Enemies move left and right and drop down when hitting the screen edge.
+4. **Collision Detection:** When a bullet hits an enemy, the enemy is destroyed, and the score is updated.
+5. **Game Over:** If an enemy reaches the player's position, the game ends and displays a game over screen. Press 'R' to restart.
 
 ## Installation
-To run the game locally, clone this repository and install the required libraries.
 
+To run this game on your local machine, follow these steps:
 
+1. **Clone the Repository:**
+   git clone https://github.com/gen5115/Space-Invaders.git
+   
+ 2.**Navigate to the Project Directory:**
+   cd Space-Invaders
+   
+3. **Install Dependencies:**
+  Make sure you have Python and Pygame installed. You can install Pygame using pip:
+pip install pygame
+
+ 4. **Run the Game:**
+     space_invaders.py
+
+    
+## Challenges and Solutions
+
+1. **Collision Detection:**
+
+Challenge: Ensuring accurate collision detection between bullets and enemies.
+Solution: Used distance calculations to determine collisions.
+
+2. **Enemy Movement:**
+
+Challenge: Smooth movement and boundary handling.
+Solution: Implemented horizontal movement with boundary checks.
+
+3.**Game Over Handling:**
+
+Challenge: Managing the game over screen and restart functionality.
+Solution: Added a game over screen and a restart option using a loop to wait for user input.
+
+## Key Learnings
+- **Game Development:** Gained experience in game mechanics and using Pygame for development.
+- **Problem-Solving:** Developed skills in debugging and resolving issues related to game logic and collision detection.
+
+## Links
+https://youtu.be/FfWpgLFMI7w?si=VQ9Mx-mdCJJH2J2W - This video guided the development of the game.
+GitHub Repository
