@@ -60,4 +60,4 @@ Solution: Added a game over screen and a restart option using a loop to wait for
 
 ## Links
 https://youtu.be/FfWpgLFMI7w?si=VQ9Mx-mdCJJH2J2W - This video guided the development of the game.
-GitHub Repository
+https://github.com/gen5115/Space-Invaders.git - GitHub Repository
