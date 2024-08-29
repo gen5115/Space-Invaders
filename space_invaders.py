@@ -65,6 +65,13 @@ gameOver = pygame.font.Font("freesansbold.ttf", 64)  # Game over Font
 # Start Menu Font
 start_font = pygame.font.Font("freesansbold.ttf", 56)  # Start Menu
 
+# Level
+level = 1
+level_threshold = 10  # Score required to increase level
+
+# Level font
+level_font = pygame.font.Font("freesansbold.ttf", 32)
+
 # Start Menu Function
 def start_menu():
     waiting = True
@@ -87,6 +94,11 @@ def show_score(x, y):
     score = font.render("Score:" + str(score_value), True, (255, 255, 255))
     screen.blit(score, (x, y))
 
+# Displaying level function
+def show_level(x, y):
+    level_text = level_font.render("Level: " + str(level), True, (255, 255, 255))
+    screen.blit(level_text, (x, y))
+
 # GAME Over function
 def game_over_text():
     over_text = gameOver.render("GAME OVER", True, (255, 255, 255))
@@ -107,10 +119,9 @@ def game_over_text():
 
     restart_game()
 
-                   
 # Restart Game function
 def restart_game():
-    global playerX, playerY, playerX_change, bulletX, bulletY, bullet_state, score_value
+    global playerX, playerY, playerX_change, bulletX, bulletY, bullet_state, score_value, level
     playerX = 350
     playerY = 480
     playerX_change = 0
@@ -118,10 +129,12 @@ def restart_game():
     bulletY = 480
     bullet_state = "ready"
     score_value = 0
+    level = 1
 
     for i in range(num_of_enemies):
         enemyX[i] = random.randint(0, 760)
         enemyY[i] = random.randint(50, 150)
+        enemyX_change[i] = 0.5  # Reset enemy speed
 
     game_loop()
 
@@ -144,9 +157,16 @@ def is_collision(enemyX, enemyY, bulletX, bulletY):
     distance = math.sqrt((math.pow(enemyX - bulletX, 2)) + (math.pow(enemyY - bulletY, 2)))
     return distance < 27
 
+# Level Up Function
+def level_up():
+    global level, enemyX_change
+    level += 1
+    for i in range(num_of_enemies):
+        enemyX_change[i] += 0.5  # Increase enemy speed
+
 # Game Loop
 def game_loop():
-    global running, playerX, playerY, playerX_change, bulletX, bulletY, bullet_state, score_value
+    global running, playerX, playerY, playerX_change, bulletX, bulletY, bullet_state, score_value, level
     game_active = False
     running = True
     start_menu()  
@@ -219,6 +239,10 @@ def game_loop():
 
             enemy(enemyX[i], enemyY[i], i)
 
+        # Level Up Check
+        if score_value >= level * level_threshold:
+            level_up()
+
         # Bullet movement
         if bulletY <= 0:
             bulletY = 480
@@ -231,6 +255,7 @@ def game_loop():
         # Function calls
         player(playerX, playerY)
         show_score(testX, testY)
+        show_level(screen_width - 150, testY)  # Display level in the right corner
 
         # Display update
         pygame.display.update()
