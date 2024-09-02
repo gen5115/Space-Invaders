@@ -179,7 +179,6 @@ def game_loop():
     global running, playerX, playerY, playerX_change, bulletX, bulletY, bullet_state, score_value, level
     global level_up_time  # Track time of level-up text display
 
-    game_active = False
     running = True
     start_menu()
 
