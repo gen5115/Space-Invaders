@@ -54,6 +54,10 @@ Solution: Implemented horizontal movement with boundary checks.
 Challenge: Managing the game over screen and restart functionality.
 Solution: Added a game over screen and a restart option using a loop to wait for user input.
 
+##Note
+
+Please note that I've added comments within my code for my own personal understanding and convenience. These are basically for my personal use but may also assist people to understand the code more easily.
+
 ## Key Learnings
 - **Game Development:** Gained experience in game mechanics and using Pygame for development.
 - **Problem-Solving:** Developed skills in debugging and resolving issues related to game logic and collision detection.
